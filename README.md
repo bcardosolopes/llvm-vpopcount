@@ -1,7 +1,11 @@
 # llvm-vpopcount
-Evaluation of LLVM vector popcount implementation based on http://wm.ite.pl/articles/sse-popcount.html
+Evaluation of LLVM vector popcount implementation based on http://wm.ite.pl/articles/sse-popcount.html  
 
++ sselookup: implementation based on http://wm.ite.pl/articles/sse-popcount.html
++ parallelbitmath: implementation based on http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel
++ scalar + ctpop = vec_extracts + vec_inserts + x86 ctpop instructions
 
+Currently, scalar+ctpop and parallelbitmath are used for population count on vector types. The idea is to replace them by sselookup wherever it's profitable.
 
 **v4i32-avx**  
 + sselookup (v4i32): 1.10211  
@@ -12,7 +16,8 @@ Evaluation of LLVM vector popcount implementation based on http://wm.ite.pl/arti
 + sselookup (v8i32): **1.97514**
 + scalar + ctpop (v8i32): 2.37118
 
-**v8i32-avx2**
+**v8i32-avx2**  
+Multiple runs for implementations below yielded similar results between both, but parallelbitmath performs better on most part. 
 + sselookup (v8i32): 1.17823
 + parallelbitmath (v8i32): **1.15288**
 
@@ -40,7 +45,7 @@ Evaluation of LLVM vector popcount implementation based on http://wm.ite.pl/arti
 
 **v32i8-avx2**  
 + scalar + ctpop (v32i8): 8.79509
-+ sselookup (v32i8): **0.487716****
++ sselookup (v32i8): **0.487716**
 
 **v8i16-avx**  
 + scalar + ctpop (v8i16): 1.86908
