@@ -17,7 +17,7 @@ Currently, scalar+ctpop and parallelbitmath are used for population count on vec
 + scalar + ctpop (v8i32): 2.37118
 
 **v8i32-avx2**  
-Multiple runs for implementations below yielded similar results between both, but parallelbitmath performs better on most part. 
+Multiple runs for both implementations below presented similar results, but parallelbitmath performs better on most of them. 
 + sselookup (v8i32): 1.17823
 + parallelbitmath (v8i32): **1.15288**
 
