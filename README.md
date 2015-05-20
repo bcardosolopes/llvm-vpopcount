@@ -1,5 +1,5 @@
 # llvm-vpopcount
-Evaluation of LLVM vector popcount implementation based on http://wm.ite.pl/articles/sse-popcount.html  
+Evaluation of LLVM x86 vector population count implementation.  
 
 + sselookup: implementation based on http://wm.ite.pl/articles/sse-popcount.html
 + parallelbitmath: implementation based on http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel
